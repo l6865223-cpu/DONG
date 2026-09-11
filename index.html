@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DONG 品質管理手冊</title>
+<meta name="description" content="金屬管件品質控管與包裝規格規範：品質目標、部門職責、檢驗流程、不良品判定、包裝規格表與保密規範。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%93%A6%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --text: #1b2430;
+    --muted: #5b6776;
+    --line: #dde2e8;
+    --accent: #1f5fa8;
+    --accent-soft: #e9f0f9;
+    --fill: #fff7d6;
+    --fill-line: #e8d58a;
+    --warn: #a15c07;
+    --warn-soft: #fdf1dc;
+    --danger: #b42318;
+    --danger-soft: #fdecea;
+    --radius: 10px;
+    --font: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f141a;
+      --surface: #171e26;
+      --text: #e6ebf1;
+      --muted: #9aa7b5;
+      --line: #2b3541;
+      --accent: #72aaf0;
+      --accent-soft: #1a2a3e;
+      --fill: #2e2812;
+      --fill-line: #6b5a1f;
+      --warn: #f0b451;
+      --warn-soft: #33270f;
+      --danger: #f08272;
+      --danger-soft: #3a1c18;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
+  body {
+    margin: 0;
+    padding-inline: 16px;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.75 var(--font);
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  a { color: var(--accent); }
+  h1, h2, h3 { line-height: 1.35; margin: 0; }
+  p { margin: 0; }
+
+  /* ---------- 頁首 ---------- */
+  header.hero { padding-block: 3.5rem 2rem; }
+  .eyebrow {
+    display: inline-block;
+    font-size: .8rem; font-weight: 600; letter-spacing: .12em;
+    color: var(--accent);
+    margin-bottom: .75rem;
+  }
+  .hero h1 { font-size: clamp(1.9rem, 5vw, 2.8rem); letter-spacing: .02em; }
+  .hero .sub { color: var(--muted); font-size: 1.05rem; margin-top: .5rem; }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .4rem;
+    padding: .6rem 1.1rem; border-radius: 8px;
+    font: inherit; font-size: .95rem; font-weight: 600;
+    text-decoration: none; cursor: pointer;
+    border: 1px solid var(--accent);
+  }
+  .btn.primary { background: var(--accent); color: var(--surface); }
+  .btn.ghost { background: transparent; color: var(--accent); }
+  .btn:hover { filter: brightness(1.08); }
+
+  /* ---------- 本站內容（目錄卡片） ---------- */
+  .toc-title { font-size: .95rem; color: var(--muted); font-weight: 600; margin-bottom: .75rem; }
+  .toc {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: .75rem;
+    padding: 0; margin: 0; list-style: none;
+  }
+  .toc a {
+    display: block; height: 100%;
+    padding: 1rem 1.1rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--text); text-decoration: none;
+    transition: border-color .15s, transform .15s;
+  }
+  .toc a:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .toc .num { font-size: .8rem; font-weight: 700; color: var(--accent); }
+  .toc strong { display: block; font-size: 1.05rem; margin-top: .15rem; }
+  .toc span.desc { display: block; color: var(--muted); font-size: .88rem; line-height: 1.6; margin-top: .3rem; }
+  .toc li.featured a { border-color: var(--accent); background: var(--accent-soft); }
+
+  /* ---------- 章節 ---------- */
+  main section {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: clamp(1.25rem, 3vw, 2rem);
+    margin-top: 1.25rem;
+  }
+  main { padding-block: 1rem 3rem; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .sec-head h2 { font-size: 1.4rem; }
+  .sec-head h2 .n { color: var(--accent); margin-right: .4rem; }
+  .sec-head .en { color: var(--muted); font-size: .85rem; font-weight: 400; display: block; margin-top: .15rem; }
+  .top-link { font-size: .85rem; color: var(--muted); text-decoration: none; white-space: nowrap; }
+  .top-link:hover { color: var(--accent); }
+
+  .grid { display: grid; gap: .9rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .card { border: 1px solid var(--line); border-radius: 8px; padding: 1rem 1.1rem; }
+  .card h3 { font-size: 1.02rem; margin-bottom: .35rem; }
+  .card .who { color: var(--muted); font-size: .85rem; margin-bottom: .5rem; }
+  .card ul { margin: 0; padding-left: 1.2rem; }
+  .card li + li { margin-top: .2rem; }
+  .card.wide { grid-column: 1 / -1; background: var(--accent-soft); border-color: transparent; }
+  .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .6rem; }
+  .tag { font-size: .85rem; padding: .15rem .6rem; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); }
+
+  /* 檢驗流程 */
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: .9rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); counter-reset: s; }
+  .steps li { position: relative; border: 1px solid var(--line); border-radius: 8px; padding: 1rem 1.1rem 1rem 3.4rem; counter-increment: s; }
+  .steps li::before {
+    content: counter(s);
+    position: absolute; left: 1rem; top: 1rem;
+    width: 1.8rem; height: 1.8rem; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--accent); color: var(--surface); font-weight: 700; font-size: .9rem;
+  }
+  .steps strong { display: block; }
+  .steps span { color: var(--muted); font-size: .92rem; }
+
+  /* 不良品判定 */
+  .judge { width: 100%; border-collapse: collapse; }
+  .judge th, .judge td { text-align: left; padding: .7rem .8rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .judge th { font-size: .85rem; color: var(--muted); font-weight: 600; }
+  .judge td:first-child { font-weight: 600; white-space: nowrap; }
+  .verdict { color: var(--danger); font-weight: 600; }
+  .dispo { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; align-items: center; }
+  .dispo b { margin-right: .25rem; }
+
+  /* 提示框 */
+  .note { border-radius: 8px; padding: .8rem 1rem; font-size: .95rem; }
+  .note.warn { background: var(--warn-soft); color: var(--text); border-left: 4px solid var(--warn); }
+  .note.info { background: var(--accent-soft); border-left: 4px solid var(--accent); }
+  .note + .note { margin-top: .75rem; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .9em; background: var(--accent-soft); padding: .05rem .35rem; border-radius: 4px; }
+
+  /* ---------- 包裝規格表（表單） ---------- */
+  .form-tools { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1rem; }
+  .sheet { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .sheet .title { text-align: center; font-size: 1.3rem; font-weight: 700; padding: .9rem; letter-spacing: .3em; border-bottom: 1px solid var(--line); }
+  .sheet .hint { font-size: .88rem; color: var(--muted); padding: .6rem 1rem; border-bottom: 1px solid var(--line); }
+  .sheet .part { background: var(--accent-soft); font-weight: 700; padding: .5rem 1rem; border-bottom: 1px solid var(--line); }
+  .row { display: grid; grid-template-columns: 9.5rem 1fr; border-bottom: 1px solid var(--line); }
+  .row > .k { padding: .6rem 1rem; font-weight: 600; font-size: .93rem; border-right: 1px solid var(--line); }
+  .row > .v { padding: .6rem 1rem; }
+  .row.pair { grid-template-columns: 9.5rem 1fr 7rem 1fr; }
+  .row.pair > .v { border-right: 1px solid var(--line); }
+  .row.pair > .v:last-child { border-right: 0; }
+  .row.pair > .k:nth-child(3) { border-left: 0; }
+  .sheet > :last-child { border-bottom: 0; }
+
+  .opts { display: flex; flex-wrap: wrap; gap: .35rem 1.1rem; }
+  .opts label { display: inline-flex; align-items: center; gap: .35rem; cursor: pointer; white-space: nowrap; }
+  input[type="checkbox"] { width: 1.05rem; height: 1.05rem; accent-color: var(--accent); margin: 0; }
+  .blank {
+    font: inherit; color: inherit;
+    background: var(--fill);
+    border: 0; border-bottom: 1px solid var(--fill-line);
+    border-radius: 3px 3px 0 0;
+    padding: .1rem .4rem;
+    width: 7rem; min-width: 0;
+  }
+  .blank.s { width: 4.5rem; }
+  .blank.full { width: 100%; }
+  .blank:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .seal { display: grid; grid-template-columns: 9.5rem 1fr; border-bottom: 1px solid var(--line); }
+  .seal > div { padding: .6rem 1rem; }
+  .seal > div:first-child { border-right: 1px solid var(--line); font-weight: 600; }
+  .seal.head > div { font-size: .85rem; color: var(--muted); font-weight: 600; padding-block: .4rem; }
+  .seal p { font-size: .93rem; }
+
+  .remarks { padding: .4rem 1rem .8rem; border-bottom: 1px solid var(--line); }
+  .remarks div { display: flex; gap: .5rem; align-items: center; margin-top: .4rem; }
+  .remarks span { color: var(--muted); width: 1.2rem; }
+
+  .weights { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); border-bottom: 1px solid var(--line); }
+  .weights > div { padding: .6rem 1rem; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: .3rem; font-size: .93rem; font-weight: 600; }
+  .weights > div:last-child { border-right: 0; }
+
+  .signs { display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 1px solid var(--line); }
+  .signs > div { padding: .6rem .8rem 2.6rem; border-right: 1px solid var(--line); font-size: .93rem; font-weight: 600; }
+  .signs > div:last-child { border-right: 0; }
+
+  .dates { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
+  .dates > div { padding: .6rem 1rem; font-weight: 600; font-size: .93rem; }
+  .dates > div:first-child { border-right: 1px solid var(--line); }
+  .foot { padding: .7rem 1rem; font-size: .85rem; color: var(--muted); }
+
+  @media (max-width: 640px) {
+    .row, .row.pair, .seal { grid-template-columns: 1fr; }
+    .row > .k, .seal > div:first-child { border-right: 0; border-bottom: 1px dashed var(--line); padding-bottom: .3rem; }
+    .row.pair > .v { border-right: 0; }
+    .seal.head { display: none; }
+    .signs { grid-template-columns: 1fr 1fr; }
+    .signs > div { border-bottom: 1px solid var(--line); }
+    .dates { grid-template-columns: 1fr; }
+    .dates > div:first-child { border-right: 0; border-bottom: 1px solid var(--line); }
+    .judge td:first-child { white-space: normal; }
+  }
+
+  footer.site { color: var(--muted); font-size: .85rem; text-align: center; padding-block: 0 2.5rem; }
+
+  /* ---------- 列印：只印包裝規格表 ---------- */
+  @media print {
+    :root { --bg: #fff; --surface: #fff; --text: #000; --muted: #333; --line: #999; --accent: #000; --accent-soft: #eee; --fill: #fff; --fill-line: #666; }
+    body { padding: 0; font-size: 11pt; line-height: 1.5; }
+    body.print-form header.hero,
+    body.print-form .toc-block,
+    body.print-form main section:not(#form),
+    body.print-form footer.site { display: none; }
+    .top-link, .form-tools, .sec-head, .no-print { display: none; }
+    main section { border: 0; padding: 0; margin: 0; }
+    .sheet { border-color: #000; border-radius: 0; }
+    .blank { background: transparent; }
+    .signs > div { padding-bottom: 3rem; }
+    .row, .seal, .signs, .weights { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero" id="top">
+    <span class="eyebrow">DONG · QUALITY MANUAL</span>
+    <h1>金屬管件品質控管與包裝規格規範</h1>
+    <p class="sub">Metal Pipe Fittings QC &amp; Packaging Standard — 結合公司正式《包裝規格表》與品管規範的標準化作業指導手冊。</p>
+    <div class="actions">
+      <a class="btn primary" href="specs.html">包裝規格查詢</a>
+      <a class="btn ghost" href="#form">空白包裝規格表</a>
+      <a class="btn ghost" href="%E5%8C%85%E8%A3%9D%E8%A6%8F%E6%A0%BC%E8%A1%A8.xlsx" download>下載 Excel 範本</a>
+    </div>
+  </header>
+
+  <nav class="toc-block" aria-label="本站內容">
+    <p class="toc-title">本站內容</p>
+    <ul class="toc">
+      <li><a href="#goals"><span class="num">01</span><strong>品質與包裝目標</strong><span class="desc">零缺陷出貨、標準化包裝、重量與標示管制</span></a></li>
+      <li><a href="#roles"><span class="num">02</span><strong>部門職責與分工</strong><span class="desc">全員外觀檢測，品檢、品保、包裝各司其職</span></a></li>
+      <li><a href="#flow"><span class="num">03</span><strong>檢驗流程</strong><span class="desc">尺寸公差 → 表面外觀 → 成品與包裝驗收</span></a></li>
+      <li><a href="#ng"><span class="num">04</span><strong>不良品判定與處置</strong><span class="desc">超差與嚴重瑕疵的判定，返工／報廢／特採</span></a></li>
+      <li><a href="#form"><span class="num">05</span><strong>包裝規格表</strong><span class="desc">線上版表單，可勾選、填寫並直接列印</span></a></li>
+      <li><a href="#privacy"><span class="num">06</span><strong>商業機密與客戶名稱保護</strong><span class="desc">對外公開文件須遮蔽客戶名稱與敏感資訊</span></a></li>
+      <li class="featured"><a href="specs.html"><span class="num">07 · 互動查詢</span><strong>包裝規格查詢</strong><span class="desc">點圖表交叉篩選、自動抓外銷超重與重量錯誤；載入的 Excel 只在自己電腦處理</span></a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- 01 -->
+    <section id="goals">
+      <div class="sec-head">
+        <h2><span class="n">01</span>核心品質與包裝目標<span class="en">Core Quality &amp; Packaging Objectives</span></h2>
+        <a class="top-link" href="#top">↑ 回目錄</a>
+      </div>
+      <div class="grid">
+        <div class="card"><h3>零缺陷出貨</h3><p>嚴格把關金屬管件尺寸公差、外觀與結構防護。</p></div>
+        <div class="card"><h3>標準化包裝規範</h3><p>依據工程圖號與客戶需求，精準執行包裝作業，防止運輸碰撞與氧化。</p></div>
+        <div class="card"><h3>嚴格重量與標示管制</h3><p>落實單箱限重、重量計算及跨部門簽核流程。</p></div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section id="roles">
+      <div class="sec-head">
+        <h2><span class="n">02</span>部門職責與分工規範<span class="en">Department Roles &amp; Responsibilities</span></h2>
+        <a class="top-link" href="#top">↑ 回目錄</a>
+      </div>
+      <div class="grid">
+        <div class="card wide">
+          <h3>全員共同核心能力：外觀檢測 (Visual Inspection)</h3>
+          <p class="who">適用對象：全體成員（品檢、品保、包裝人員）</p>
+          <p>全員皆須具備並落實金屬外觀檢測能力，嚴禁以下瑕疵流出：</p>
+          <div class="tags">
+            <span class="tag">表面刮傷</span><span class="tag">凹坑</span><span class="tag">裂紋</span><span class="tag">沙孔</span>
+            <span class="tag">毛邊</span><span class="tag">鏽蝕</span><span class="tag">氧化皮</span><span class="tag">油污或異物殘留</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>品檢人員</h3>
+          <p class="who">Inspectors — 實質檢驗與尺寸量測</p>
+          <ul>
+            <li>執行實體尺寸與幾何公差檢驗（外徑、內徑、壁厚、螺牙精度及長度）。</li>
+            <li>確實填寫「檢驗紀錄表」，判定產品合格與否。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>品保人員</h3>
+          <p class="who">Quality Assurance — 品質控管與規格稽核</p>
+          <ul>
+            <li>審查與維護「包裝規格表」及品質檢驗標準 (SOP)。</li>
+            <li>執行包裝前品質確認、不合格品追蹤與矯正預防措施 (CAPA)。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>包裝人員</h3>
+          <p class="who">Packers — 精準執行與包裝防線</p>
+          <ul>
+            <li>嚴格依照「包裝規格表」之填寫說明與勾選項目執行作業。</li>
+            <li>落實防鏽處理、緩衝隔離、封箱方式及重量限制把關。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section id="flow">
+      <div class="sec-head">
+        <h2><span class="n">03</span>金屬管件檢驗流程<span class="en">Inspection Workflow</span></h2>
+        <a class="top-link" href="#top">↑ 回目錄</a>
+      </div>
+      <ol class="steps">
+        <li><strong>尺寸公差檢驗</strong><span>使用專業量具確認管件幾何尺寸。</span></li>
+        <li><strong>表面外觀檢測</strong><span>全員落實金屬外觀與清潔度確認。</span></li>
+        <li><strong>成品與包裝驗收</strong><span>尺寸與外觀皆合格後，依包裝規格表進行包裝作業。</span></li>
+      </ol>
+    </section>
+
+    <!-- 04 -->
+    <section id="ng">
+      <div class="sec-head">
+        <h2><span class="n">04</span>不良品判定與處置標準<span class="en">Non-conforming Product Judgment &amp; Disposition</span></h2>
+        <a class="top-link" href="#top">↑ 回目錄</a>
+      </div>
+      <table class="judge">
+        <thead><tr><th>項目</th><th>判定標準</th></tr></thead>
+        <tbody>
+          <tr><td>尺寸超差</td><td>超出圖面公差範圍者，<span class="verdict">判定為不良</span>。</td></tr>
+          <tr><td>外觀嚴重瑕疵</td><td>裂紋、穿孔、嚴重鏽蝕或深刮傷者，<span class="verdict">禁止包裝出貨</span>。</td></tr>
+        </tbody>
+      </table>
+      <div class="dispo"><b>處置方式：</b><span class="tag">返工修復</span><span class="tag">報廢處理</span><span class="tag">特採放行</span></div>
+    </section>
+
+    <!-- 05 -->
+    <section id="form">
+      <div class="sec-head">
+        <h2><span class="n">05</span>包裝規格表<span class="en">Packaging Specification Form</span></h2>
+        <a class="top-link" href="#top">↑ 回目錄</a>
+      </div>
+      <div class="form-tools">
+        <button class="btn primary" type="button" id="print-form">列印這張表</button>
+        <a class="btn ghost" href="%E5%8C%85%E8%A3%9D%E8%A6%8F%E6%A0%BC%E8%A1%A8.xlsx" download>下載 Excel 範本</a>
+        <button class="btn ghost" type="button" id="clear-form">清空已填內容</button>
+      </div>
+      <p class="note info no-print" style="margin-bottom:1rem">此線上版與 Excel 範本內容相同。畫面上填寫的內容<b>不會被儲存</b>，僅供勾選後直接列印使用。</p>
+
+      <form class="sheet" id="sheet" onsubmit="return false">
+        <div class="title">包裝規格表</div>
+        <div class="hint">填寫說明：黃色欄位請填寫文字／數字；核取方塊請勾選。</div>
+
+        <div class="part">一、基本資訊</div>
+        <div class="row pair">
+          <div class="k">客戶名稱</div><div class="v"><input class="blank full" aria-label="客戶名稱"></div>
+          <div class="k">材質</div><div class="v"><input class="blank full" aria-label="材質"></div>
+        </div>
+        <div class="row pair">
+          <div class="k">圖號</div><div class="v"><input class="blank full" aria-label="圖號"></div>
+          <div class="k">規格</div><div class="v"><input class="blank full" aria-label="規格"></div>
+        </div>
+        <div class="row">
+          <div class="k">表面處理</div>
+          <div class="v opts">
+            <label><input type="checkbox">陽極</label>
+            <label><input type="checkbox">硬陽本色</label>
+            <label><input type="checkbox">噴砂</label>
+            <label><input type="checkbox">電鍍</label>
+            <label><input type="checkbox">皮膜</label>
+            <label><input type="checkbox">無</label>
+            <label><input type="checkbox">其他：<input class="blank" aria-label="表面處理其他"></label>
+          </div>
+        </div>
+
+        <div class="part">二、包裝方式確認</div>
+        <div class="row">
+          <div class="k">包材種類</div>
+          <div class="v opts">
+            <label><input type="checkbox">3層紙箱</label>
+            <label><input type="checkbox">5層紙箱</label>
+            <label><input type="checkbox">客戶指定其他：<input class="blank" aria-label="包材種類其他"></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="k">包材尺寸（cm）</div>
+          <div class="v">
+            <div class="opts">
+              <label>長：<input class="blank s" inputmode="decimal" aria-label="長">cm</label>
+              <label>寬：<input class="blank s" inputmode="decimal" aria-label="寬">cm</label>
+              <label>高：<input class="blank s" inputmode="decimal" aria-label="高">cm</label>
+              <label>種類：<input class="blank" aria-label="尺寸種類"></label>
+            </div>
+            <div class="opts" style="margin-top:.4rem">
+              <label><input type="checkbox">標準尺寸</label>
+              <label><input type="checkbox">客製尺寸（割箱）</label>
+              <label><input type="checkbox">客戶提供</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="k">緩衝包材</div>
+          <div class="v opts">
+            <label><input type="checkbox">無</label>
+            <label><input type="checkbox">泡棉</label>
+            <label><input type="checkbox">紙板隔層</label>
+            <label><input type="checkbox">PE紙</label>
+            <label><input type="checkbox">單光紙</label>
+            <label><input type="checkbox">PE袋規格：<input class="blank" aria-label="PE袋規格"></label>
+            <label><input type="checkbox">其他：<input class="blank" aria-label="緩衝包材其他"></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="k">膠帶材質</div>
+          <div class="v opts">
+            <label><input type="checkbox">OPP膠帶</label>
+            <label><input type="checkbox">牛皮紙膠帶</label>
+            <label><input type="checkbox">外銷膠帶</label>
+            <label><input type="checkbox">其他：<input class="blank" aria-label="膠帶材質其他"></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="k">封口機</div>
+          <div class="v opts">
+            <label><input type="checkbox">無</label>
+            <label><input type="checkbox">分層用</label>
+            <label><input type="checkbox">封口用</label>
+          </div>
+        </div>
+
+        <div class="seal head"><div>封箱方式（黏法）</div><div>說明</div></div>
+        <div class="seal">
+          <div class="opts"><label><input type="checkbox">H型</label></div>
+          <div><p>上蓋一條橫向膠帶＋兩側垂直膠帶，形成「H」字，側面須繞一圈膠帶，標準工業封箱方式。</p></div>
+        </div>
+        <div class="seal">
+          <div class="opts"><label><input type="checkbox">十字型</label></div>
+          <div><p>橫向＋垂直膠帶各一條，形成「十字」，側面須繞一圈膠帶，加強固定。</p></div>
+        </div>
+        <div class="seal">
+          <div class="opts"><label><input type="checkbox">打包機防護</label></div>
+          <div><p>長和寬打兩條帶子，打包位子要繞貼膠帶，以避免損傷包裝。</p></div>
+        </div>
+        <div class="seal">
+          <div class="opts"><label><input type="checkbox">其他</label></div>
+          <div><p>客製封箱方式（如整箱包膜、纏繞膜封箱、雙重封條等）：<input class="blank full" style="margin-top:.3rem" aria-label="客製封箱方式"></p></div>
+        </div>
+
+        <div class="row">
+          <div class="k">貼箱位置</div>
+          <div class="v opts">
+            <label><input type="checkbox">側面<input class="blank s" aria-label="側面"></label>
+            <label><input type="checkbox">正面<input class="blank s" aria-label="正面"></label>
+            <label><input type="checkbox">上蓋</label>
+            <label><input type="checkbox">其他：<input class="blank" aria-label="貼箱位置其他"></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="k">包裝圖／圖面</div>
+          <div class="v opts">
+            <label><input type="checkbox">有</label>
+            <label><input type="checkbox">無</label>
+            <span style="color:var(--muted)">（如有請附圖）</span>
+          </div>
+        </div>
+
+        <div class="part">三、⚠ 特別要求／備註</div>
+        <div class="remarks">
+          <div><span>1.</span><input class="blank full" aria-label="備註 1"></div>
+          <div><span>2.</span><input class="blank full" aria-label="備註 2"></div>
+          <div><span>3.</span><input class="blank full" aria-label="備註 3"></div>
+          <div><span>4.</span><input class="blank full" aria-label="備註 4"></div>
+          <div><span>5.</span><input class="blank full" aria-label="備註 5"></div>
+        </div>
+
+        <div class="part">四、數量和重量</div>
+        <div class="note warn" style="border-radius:0;margin:0">若為外銷，限重 20KG。</div>
+        <div class="weights">
+          <div>單支重量（kg）<input class="blank full" inputmode="decimal" aria-label="單支重量"></div>
+          <div>總重（kg）<input class="blank full" inputmode="decimal" aria-label="總重"></div>
+          <div>一箱數量<input class="blank full" inputmode="numeric" aria-label="一箱數量"></div>
+          <div>包材重量（kg）<input class="blank full" inputmode="decimal" aria-label="包材重量"></div>
+        </div>
+
+        <div class="part">五、✔ 簽核確認</div>
+        <div class="signs">
+          <div>包裝主管：</div>
+          <div>包裝：</div>
+          <div>品保主管：</div>
+          <div>品保：</div>
+          <div>業務主管：</div>
+        </div>
+
+        <div class="part">六、附件檢附（如適用）</div>
+        <div class="row">
+          <div class="k">附件</div>
+          <div class="v opts">
+            <label><input type="checkbox">客戶包裝規範</label>
+            <label><input type="checkbox">包裝示意圖</label>
+            <label><input type="checkbox">包裝樣品照片</label>
+            <label><input type="checkbox">其他：<input class="blank" aria-label="附件其他"></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="k"><label style="display:inline-flex;gap:.35rem;align-items:center"><input type="checkbox">備註</label></div>
+          <div class="v"><input class="blank full" aria-label="附件備註"></div>
+        </div>
+
+        <div class="dates">
+          <div>核定日期：</div>
+          <div>修改日期：</div>
+        </div>
+        <div class="foot">本表單作為訂單包裝確認依據，請完整填寫。如有修改須加日期和標示，⚠ 符號旁數字為版本號碼。</div>
+      </form>
+    </section>
+
+    <!-- 06 -->
+    <section id="privacy">
+      <div class="sec-head">
+        <h2><span class="n">06</span>商業機密與客戶名稱保護規範<span class="en">Confidentiality &amp; Redaction Policy</span></h2>
+        <a class="top-link" href="#top">↑ 回目錄</a>
+      </div>
+      <p class="note warn"><b>客戶名稱遮蔽原則：</b>凡對外公開或發布至公共／共用平台的表單與文件，所有<b>客戶名稱（Customer Name）</b>、特定圖號及商業敏感資訊，均須進行遮蔽處理（例如以 <code>[客戶 A]</code>、<code>***</code> 或代號代替），以嚴格遵守商業保密協議與智慧財產保護。</p>
+      <p class="note info"><b>內部控管：</b>真實客戶名稱與機密圖檔僅限內部授權人員在內部系統或權限控管環境中使用。</p>
+    </section>
+
+  </main>
+
+  <footer class="site">DONG 品質管理手冊 · 最後更新：2026 年 3 月</footer>
+</div>
+
+<script>
+  document.getElementById('print-form').addEventListener('click', function () {
+    document.body.classList.add('print-form');
+    window.print();
+  });
+  window.addEventListener('afterprint', function () {
+    document.body.classList.remove('print-form');
+  });
+  document.getElementById('clear-form').addEventListener('click', function () {
+    if (confirm('確定要清空表單上已填寫與勾選的內容嗎？')) document.getElementById('sheet').reset();
+  });
+</script>
+</body>
+</html>
