@@ -46,7 +46,25 @@
 
 ---
 
-## 4. 自動化與程式碼品質標準 (Code Quality & Automation)
+## 4. 不良品判定與處置標準 (Non-conforming Product Judgment & Disposition)
+
+### 4.1 不良品定義
+凡軟體交付物、程式碼模組或測試項目不符合既定需求規格、驗收標準（Acceptance Criteria）或品質規範者，皆判定為**不良品（Defect / Non-conforming Item）**。
+
+### 4.2 不良品分類
+- **功能性不良 (Functional Defect)**：核心邏輯錯誤、計算結果不符、業務流程中斷。
+- **資料與相容性不良 (Data & Compatibility Defect)**：資料庫存取異常、資料遺失、跨瀏覽器或跨裝置相容性崩潰。
+- **介面與互動不良 (UI/UX Defect)**：介面錯位、排版破損、未遵循設計規範。
+- **安全與效能不良 (Security & Performance Defect)**：資安漏洞、回應時間超過預期標準（如 API 超過 3 秒）。
+
+### 4.3 處置方式 (Disposition)
+1. **返工修復 (Rework)**：由開發團隊進行程式碼修復，並經 QA 複測驗收。
+2. **特採放行 (Concession / Use As Is)**：若為輕微缺陷入且不影響核心業務，經專案主管與 QA 評估同意後得暫時放行，並列入後續版本追蹤。
+3. **退回重構 (Reject / Refactor)**：若架構或品質嚴重不符標準，退回重新設計與開發。
+
+---
+
+## 5. 自動化與程式碼品質標準 (Code Quality & Automation)
 - **程式碼審查 (Code Review)**：所有 PR 須經過至少一位資深工程師或 QA 審查。
 - **靜態程式碼分析**：透過 Linter / SonarQube 等工具進行代碼品質掃描。
 - **自動化測試**：逐步導入單元測試 (Unit Test) 與端到端測試 (E2E Test)。
