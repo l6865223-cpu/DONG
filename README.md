@@ -53,6 +53,8 @@
 
 ## 5. 高階包裝規格標準 (Advanced Packaging Specification Standards)
 
+> 💡 **線上瀏覽**：您可以點擊查看 [高階包裝規格標準線上版](https://l6865223-cpu.github.io/DONG/)。
+
 依據公司正式《包裝規格表》之架構，各項包裝與防護規範細節如下：
 
 ### 5.1 基本資料與表面處理規範
